@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Navbar from "/components/Navbar";
 import Footer from "/components/Footer";
-import Typed from "react-typed";
+import { TypeAnimation } from "react-type-animation";
 import supabase from "../config/supabaseClient";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -34,11 +34,11 @@ export default function MetodoBilbo() {
                   </p>
                 </div>
                 <div className="lg:w-1/2 lg:mx-6">
-                  <Typed
-                    strings={["Método Bilbo"]}
-                    typeSpeed={150}
-                    backSpeed={100}
+                  <TypeAnimation
+                    sequence={["Método Bilbo", 2000]}
+                    speed={50}
                     className="text-6xl xl:text-8xl font-bebas animate-pulse tracking-widest text-white"
+                    repeat={Infinity}
                   />
                 </div>
               </div>

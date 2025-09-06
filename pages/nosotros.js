@@ -3,7 +3,7 @@ import Navbar from "/components/Navbar";
 import Footer from "/components/Footer";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import Typed from "react-typed";
+import { TypeAnimation } from "react-type-animation";
 
 export default function Nosotros() {
   const router = useRouter();
@@ -30,16 +30,12 @@ export default function Nosotros() {
 
         <section className = "bg-cover bg-internal-img4">
           <div className = "flex flex-col min-h-screen">
-          <Typed
-            strings={[
-              "Accesible",
-              "Centralizado",
-              "Intuitivo",
-            ]}
-            typeSpeed={150}
-            backSpeed={100}
+          <TypeAnimation
+            sequence={["Accesible", 1000, "Centralizado", 1000, "Intuitivo", 1000]}
+            speed={50}
+            deletionSpeed={50}
+            repeat={Infinity}
             className="absolute top-96 text-5xl text-center font-bebas text-white tracking-wider left-1/2 -translate-x-1/2 -translate-y-1/2 lg:text-8xl xl:top-96 "
-            loop={true}
           />
           </div>
         </section>

@@ -6,7 +6,7 @@ import PreciosCambio from "/components/CardsPrecioCambio";
 import { useRouter } from "next/router";
 import supabase from "/config/supabaseClient";
 import { useState, useEffect } from "react";
-import Typed from "react-typed";
+import { TypeAnimation } from "react-type-animation";
 
 const plans = [
   {
@@ -117,13 +117,11 @@ export default function Home() {
             className="transparencia-banner opacity-80"
             src="bccambio.jpg"
           />
-          <Typed
-            strings={[
-              "Cambio de plan"
-            ]}
-            typeSpeed={150}
-            backSpeed={100}
+          <TypeAnimation
+            sequence={["Cambio de plan", 2000]}
+            speed={50}
             className="absolute top-32 text-2xl text-center font-bebas text-white tracking-wider left-1/2 -translate-x-1/2 -translate-y-1/2 xl:text-7xl xl:top-64 "
+            repeat={Infinity}
           />
         </div>
 
