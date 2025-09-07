@@ -36,7 +36,7 @@ export default function DetalleEjercicio() {
     } 
     else {
       setSesion(null);
-      //console.log("No hay Sesión " + error);
+      ////console.log("No hay Sesión " + error);
     }
   }
 
@@ -53,7 +53,7 @@ export default function DetalleEjercicio() {
     }
     else{
       setEjercicio(data[0]);
-      //console.log(data[0])
+      ////console.log(data[0])
     }
   }
 
@@ -68,7 +68,7 @@ export default function DetalleEjercicio() {
       //console.log(error)
     }
     else{
-      //console.log(data);
+      ////console.log(data);
       setRutinas(data);
     }
   }
@@ -80,7 +80,7 @@ export default function DetalleEjercicio() {
     .eq('usuario', sesion.user.id)
 
     const count = await query
-    //console.log(count);
+    ////console.log(count);
 
     const { data, error } = await supabase
       .from('rutinas')
@@ -95,8 +95,8 @@ export default function DetalleEjercicio() {
       //console.log("ERROR: Hubo un error al crear una nueva rutina.")
     }
     else{
-      //console.log(data);
-      //console.log("Se creó una nueva rutina.")
+      ////console.log(data);
+      ////console.log("Se creó una nueva rutina.")
       agregarEjercicio(data[0].id)
     }
   }
@@ -129,7 +129,7 @@ export default function DetalleEjercicio() {
     }
     else{
       //console.log("Se agregó un nuevo ejercicio.")
-      //console.log(data[0])
+      ////console.log(data[0])
       
       const { error } = await supabase
       .from('rutinas_ejercicio_sets')
@@ -175,7 +175,7 @@ export default function DetalleEjercicio() {
       }
 
       //console.log(name + " | " + id + ": " + value + " -> " + checked);
-      //console.log(formInput.equipo)
+      ////console.log(formInput.equipo)
     },
     [formInput, setFormInput, sesion, ejercicio]
   );
@@ -238,7 +238,7 @@ export default function DetalleEjercicio() {
                       </div>
                       
                       <div className="flex justify-center w-full h-fit">
-                        <img className="rounded-3xl" src={ejercicio.img} alt={ejercicio.nombre} />
+                        <img className="rounded-3xl" src={`${process.env.NEXT_PUBLIC_IMG_EJERCICIOS_BASE}${ejercicio.img}`} alt={ejercicio.nombre} />
                       </div>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">

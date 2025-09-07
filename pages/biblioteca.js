@@ -23,7 +23,7 @@ export default function Home() {
   const [equipo, setEquipo] = useState(["Ninguno","Banda de resistencia","Banda de suspension","Barra","Barra Z","Barras (dominadas, paralelas)","Mancuerna","Mancuernas","Pesa rusa","Placa de peso","Maquinas en GYM","Banco plano","Banco declinado","Banco inclinado","Cuerda"]);
   
   useEffect(() => {
-    //console.log("useEffect")
+    ////console.log("useEffect")
     getEjerciciosBiblioteca();
     localStorage.removeItem("NombrePaquete");
     localStorage.removeItem("Meses");
@@ -72,8 +72,8 @@ export default function Home() {
 
       setPaginacion(1)
 
-      //console.log(name + " | " + id + ": " + value + " -> " + checked);
-      //console.log(formInput.equipo)
+      ////console.log(name + " | " + id + ": " + value + " -> " + checked);
+      ////console.log(formInput.equipo)
     },
     [formInput, setFormInput]
   );
@@ -103,13 +103,13 @@ export default function Home() {
     .range(rango-10, rango-1)
   
     if (filtrarMusculo)  { query = query.eq('musculo_primario', filtrarMusculo) }
-    //if (filtrarMusculo) { console.log("Filtro musculo: " + filtrarMusculo)}
+    //if (filtrarMusculo) { //console.log("Filtro musculo: " + filtrarMusculo)}
 
     if (filtrarEquipo)  { query = query.containedBy('equipo', filtrarEquipo) }
-    //if (filtrarEquipo) { console.log("Filtro equipo: " + filtrarEquipo)}
+    //if (filtrarEquipo) { //console.log("Filtro equipo: " + filtrarEquipo)}
 
     if (filtrarSearch) { query = query.ilike('nombre', filtrarSearch) }
-    //if (filtrarSearch) { console.log("Filtro search: " + filtrarSearch) }
+    //if (filtrarSearch) { //console.log("Filtro search: " + filtrarSearch) }
 
     query = query.order('puntuacion', { ascending: false })
     const data = await query
@@ -344,7 +344,7 @@ export default function Home() {
                     })}}
                   >
                     <img 
-                      src={ejercicio.img} 
+                      src={`${process.env.NEXT_PUBLIC_IMG_EJERCICIOS_BASE}${ejercicio.img}`} 
                       alt={ejercicio.nombre} 
                       className="w-1/2 sm:w-3/12 sm:p-2 md:w-2/12 z-0"
                     />

@@ -31,18 +31,14 @@ export default function Home() {
             //console.log("Este usuario no tiene plan");
           } else {
             if (pagos[0].activo == 1) {
-              //console.log(
-              //  "El usuario tiene un plan activo. Comprobando estado..."
-              //);
+              //console.log("El usuario tiene un plan activo. Comprobando estado...");
 
               let { data: sus_pagos, error } = await supabase
                 .from("sus_pagos")
                 .select("fecha_termino")
                 .eq("id_usuario", sesion.user.id);
 
-              //console.log(
-              //  "La fecha de termino es: " + sus_pagos[0].fecha_termino
-              //);
+              console.log("La fecha de termino es: " + sus_pagos[0].fecha_termino);
 
               var today = new Date();
               // getDate() Regresa el día del mes (Desde 1 a 31)
@@ -137,7 +133,7 @@ export default function Home() {
         <br />
         
         <div className="flex flex-col p-3 mt-6 lg:grid lg:grid-cols-2 lg:gap-2xl lg:h-full lg:ml-11 lg:mr-11 lg:p-5">
-          <div className="border hover:scale-105 mb-6 duration-100 w-12/12 rounded-md shadow-md bg-white"> 
+          <div className="border border-blue-500 hover:scale-105 mb-6 duration-100 w-12/12 rounded-md shadow-md bg-white">  
             <div className="grid place-items-center px-8 pb-6">
               <div className="flex flex-col mt-6">
                 <span className="text-xl font-light text-black">{'Bienvenido a'}</span>

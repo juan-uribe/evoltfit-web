@@ -7,7 +7,7 @@ import supabase from "../config/supabaseClient";
 export default function Home() {
   const router = useRouter();
 
-  //console.log(supabase);
+  ////console.log(supabase);
   const [fetchError, setFetchError] = useState(null);
   const [datos, setDatos] = useState(null);
 

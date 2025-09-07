@@ -27,7 +27,7 @@ export default function Home() {
       mesesConvertidos = parseInt(meses)
 
       if (nombrePaquete && meses) {
-        //console.log("El usuario conectado es:" + sesion.user.id);
+        ////console.log("El usuario conectado es:" + sesion.user.id);
         registrarPago();
         setTimeout(function () {
           router.push("/herramientas");
@@ -57,8 +57,8 @@ export default function Home() {
     var fecha_Actual = `${year_Actual}-${month_Actual}-${day_Actual}`
     var fecha_Terminacion = `${year_Actual}-${month_Termino}-${day_Actual}`
 
-    //console.log(fecha_Actual)
-    //console.log(fecha_Terminacion)
+    ////console.log(fecha_Actual)
+    ////console.log(fecha_Terminacion)
 
     if(month_Termino > 12 && nombrePaquete == "12 meses"){
       //console.log("Rebasa los 12 meses y es un paquete de 12 meses")
@@ -126,11 +126,11 @@ export default function Home() {
 
     if (data.session) {
       setSesion(data.session);
-      //console.log(data);
+      ////console.log(data);
     } else {
       setSesion(null);
-      //console.log("No hay Sesión " + error);
-      //console.log(data);
+      ////console.log("No hay Sesión " + error);
+      ////console.log(data);
     }
   };
 

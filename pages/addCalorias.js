@@ -72,7 +72,7 @@ export default function Home() {
   }
 
   async function updateRegistro(nombre) {
-    //console.log(rutinaIndex)
+    ////console.log(rutinaIndex)
     let temp;
 
     if (nombre == "") {
@@ -91,7 +91,7 @@ export default function Home() {
       //console.log(error);
     } else {
       //console.log("Registro actualizado");
-      //console.log(data[0])
+      ////console.log(data[0])
     }
   }
 
@@ -134,7 +134,7 @@ export default function Home() {
       //console.log("ERROR: Hubo un error al recuperar los productos.");
       //console.log(error);
     } else {
-      //console.log(data);
+      ////console.log(data);
       setProductosRegistro(data);
     }
   }
@@ -167,9 +167,9 @@ export default function Home() {
         100
       ).toFixed(2);
 
-      // console.log(conversionCaloriasGramos)
-      // console.log(conversioProteinasGramos)
-      // console.log(conversionGrasasGramos)
+      // //console.log(conversionCaloriasGramos)
+      // //console.log(conversioProteinasGramos)
+      // //console.log(conversionGrasasGramos)
 
       const { data, error } = await supabase
         .from("calorias_registro_productos")
@@ -221,9 +221,7 @@ export default function Home() {
 
       if (error2) {
         //console.log(error2);
-        //console.log(
-          //"ERROR: Hubo un error al agregar un nuevo producto a la tabla total."
-        //);
+        //console.log("ERROR: Hubo un error al agregar un nuevo producto a la tabla total.");
       } else {
         //console.log("Se agregó el producto a la tabla de productos totales.");
       }
@@ -246,9 +244,9 @@ export default function Home() {
         res[0].grasas_pieza * cantidadSeleccionada
       ).toFixed(2);
 
-      // console.log(conversionCaloriasPieza);
-      // console.log(conversioProteinasPieza);
-      // console.log(conversionGrasasPieza);
+      // //console.log(conversionCaloriasPieza);
+      // //console.log(conversioProteinasPieza);
+      // //console.log(conversionGrasasPieza);
 
       const { data, error } = await supabase
         .from("calorias_registro_productos")
@@ -299,9 +297,7 @@ export default function Home() {
 
       if (error2) {
         //console.log(error2);
-        //console.log(
-        //  "ERROR: Hubo un error al agregar un nuevo producto a la tabla total."
-        //);
+        //console.log("ERROR: Hubo un error al agregar un nuevo producto a la tabla total." );
       } else {
         //console.log("Se agregó el producto a la tabla de productos totales.");
       }

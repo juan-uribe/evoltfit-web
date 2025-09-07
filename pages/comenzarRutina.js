@@ -43,17 +43,17 @@ export default function ComenzarRutina() {
     if(data.session){
       setSesion(data.session);
       getRutina();
-      //console.log(data);
+      ////console.log(data);
     } 
     else {
       setSesion(null);
-      //console.log("No hay Sesión " + error);
+      ////console.log("No hay Sesión " + error);
       router.push('/login')
     }
   }
 
   async function getRutina() {
-    //console.log(rutinaIndex)
+    ////console.log(rutinaIndex)
     
     const { data, error } = await supabase
     .from('rutinas')
@@ -64,20 +64,20 @@ export default function ComenzarRutina() {
     .eq('id', rutinaIndex)
 
     if (error) {
-      //('ERROR: No se encontró la rutina.')
+      //console.log('ERROR: No se encontró la rutina.')
       //console.log(error)
     }
     else{
       setRutina(data[0]);
-      //console.log(data[0])
+      ////console.log(data[0])
 
-      if (!data[0].rutina_en_progreso) {
+      if (data[0].rutina_en_progreso.length === 0) {
         getEjerciciosRutina();
       }
       else{
-        setEjerciciosRutina(data[0].rutina_en_progreso.ejerciciosRutina);
-        setTiempo(data[0].rutina_en_progreso.tiempo)
-        setEjercicioSeleccionado(data[0].rutina_en_progreso.ejercicioSeleccionado)
+        setEjerciciosRutina(data[0].rutina_en_progreso[0].ejerciciosRutina);
+        setTiempo(data[0].rutina_en_progreso[0].tiempo)
+        setEjercicioSeleccionado(data[0].rutina_en_progreso[0].ejercicioSeleccionado)
         setComenzarEntrenamiento(true)
       }
     } 
@@ -146,7 +146,7 @@ export default function ComenzarRutina() {
       //console.log(error)
     }
     else{
-      //console.log(data);
+      ////console.log(data);
       setEjerciciosRutina(data);
     }
   }
@@ -167,8 +167,8 @@ export default function ComenzarRutina() {
       //console.log(error)
     }
     else{
-      //console.log('Se actualizó la rutina en progreso.')
-      //console.log(data)
+      ////console.log('Se actualizó la rutina en progreso.')
+      ////console.log(data)
     }
   }
 
@@ -182,7 +182,7 @@ export default function ComenzarRutina() {
         return 0;
       }
       
-      //console.log(i + ': Ejercicio')
+      ////console.log(i + ': Ejercicio')
       bounce = false;
 
       ejercicio.rutinas_ejercicio_sets.map((set, j) => {
@@ -231,7 +231,7 @@ export default function ComenzarRutina() {
       setMensajeAviso('Se guardó tu progreso.');
       setColorAviso('green');
       setMostrarAviso(true)
-      //console.log(data)
+      ////console.log(data)
       terminarEntrenamiento()
     }
   }

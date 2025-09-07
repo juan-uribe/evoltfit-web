@@ -6,7 +6,7 @@ import PreciosCambio from "/components/CardsPrecioCambio";
 import { useRouter } from "next/router";
 import supabase from "/config/supabaseClient";
 import { useState, useEffect } from "react";
-import { TypeAnimation } from "react-type-animation";
+import Typed from "/components/Typed";
 
 const plans = [
   {
@@ -78,7 +78,7 @@ export default function Home() {
         router.push("/precios")
       }else{
         //console.log("Este usuario si tiene un plan")
-        //console.log(sus_pagos)
+        ////console.log(sus_pagos)
         setDatosPlan(sus_pagos)
       }
   }
@@ -93,7 +93,7 @@ export default function Home() {
     } else {
       setSesion(null);
       //console.log("No hay Sesión " + error);
-      //console.log(data);
+      ////console.log(data);
       router.push("/")
     }
   };
@@ -117,11 +117,13 @@ export default function Home() {
             className="transparencia-banner opacity-80"
             src="bccambio.jpg"
           />
-          <TypeAnimation
-            sequence={["Cambio de plan", 2000]}
-            speed={50}
+          <Typed
+            strings={[
+              "Cambio de plan"
+            ]}
+            typeSpeed={150}
+            backSpeed={100}
             className="absolute top-32 text-2xl text-center font-bebas text-white tracking-wider left-1/2 -translate-x-1/2 -translate-y-1/2 xl:text-7xl xl:top-64 "
-            repeat={Infinity}
           />
         </div>
 

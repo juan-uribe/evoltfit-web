@@ -37,17 +37,17 @@ export default function Home() {
     if(data.session){
       setSesion(data.session);
       getRutina();
-      //console.log(data);
+      ////console.log(data);
     } 
     else {
       setSesion(null);
-      //console.log("No hay Sesión " + error);
+      ////console.log("No hay Sesión " + error);
       router.push('/login')
     }
   }
 
   async function getRutina() {
-    //console.log(rutinaIndex)
+    ////console.log(rutinaIndex)
     
     const { data, error } = await supabase
     .from('rutinas')
@@ -65,12 +65,12 @@ export default function Home() {
       })
       
       getEjerciciosRutina();
-      //console.log(data[0])
+      ////console.log(data[0])
     }
   }
 
   async function updateRutina(nombre) {
-    //console.log(rutinaIndex)
+    ////console.log(rutinaIndex)
     let temp;
 
     if (nombre == ''){
@@ -91,7 +91,7 @@ export default function Home() {
     }
     else{
       //console.log('Rutina Actualizada.')
-      //console.log(data[0])
+      ////console.log(data[0])
     }
   }
 
@@ -105,8 +105,8 @@ export default function Home() {
       //console.log(error)
     }
     else{
-      //console.log('Orden de los ejercicios actualizado.')
-      //console.log(data)
+      ////console.log('Orden de los ejercicios actualizado.')
+      ////console.log(data)
     }
   }
 
@@ -121,7 +121,7 @@ export default function Home() {
       //console.log(error)
     }
     else{
-      //console.log('Se eliminó ' + rutina.nombre)
+      ////console.log('Se eliminó ' + rutina.nombre)
       router.push('/rutinas')
     }
   }
@@ -218,20 +218,20 @@ export default function Home() {
 
       updateRutina(value)
 
-      //console.log(name + " | " + id + ": " + value + " -> " + checked);
+      ////console.log(name + " | " + id + ": " + value + " -> " + checked);
     },
     [formInput, setFormInput]
   );
 
   function handleOnDragEnd(result) {
-    //console.log(result)
+    ////console.log(result)
 
     if (!result.destination) return;
 
     const items = Array.from(ejerciciosRutina);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
-    //console.log(items)
+    ////console.log(items)
 
     const ordenEjercicios = [];
     for (let index = 0; index < items.length; index++) {
@@ -242,7 +242,7 @@ export default function Home() {
       };
       ordenEjercicios.push(element)
     }
-    //console.log(ordenEjercicios)
+    ////console.log(ordenEjercicios)
 
     updateOrdenEjercicios(ordenEjercicios)
     setEjerciciosRutina(items)

@@ -47,7 +47,7 @@ export default function Home() {
       }
 
       if (data) {
-        //console.log("Imagen cargada.")
+        ////console.log("Imagen cargada.")
         //console.log(data.path)
 
         const { error } = await supabase

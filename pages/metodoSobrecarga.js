@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Navbar from "/components/Navbar";
 import Footer from "/components/Footer";
-import { TypeAnimation } from "react-type-animation";
+import Typed from "/components/Typed";
 import { useEffect } from "react";
 
 export default function MetodoSobrecarga() {
@@ -32,11 +32,11 @@ export default function MetodoSobrecarga() {
                   </p>
                 </div>
                 <div className="lg:w-1/2 lg:mx-6">
-                  <TypeAnimation
-                    sequence={["Sobrecarga progresiva", 2000]}
-                    speed={50}
+                  <Typed
+                    strings={["Sobrecarga progresiva"]}
+                    typeSpeed={150}
+                    backSpeed={100}
                     className="text-6xl xl:text-8xl font-bebas animate-pulse tracking-widest text-white"
-                    repeat={Infinity}
                   />
                 </div>
               </div>

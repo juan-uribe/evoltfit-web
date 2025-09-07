@@ -7,7 +7,7 @@ import supabase from '../config/supabaseClient';
 export default function Home() {
   const router = useRouter();
 
-  //console.log(supabase);
+  ////console.log(supabase);
   const [fetchError, setFetchError] = useState(null);
   const [datos, setDatos] = useState(null);
 
@@ -109,8 +109,8 @@ export default function Home() {
     }
   }
 
-  //console.log(datos);
-  //console.log(fetchError);
+  ////console.log(datos);
+  ////console.log(fetchError);
 
   return (
     <div className="bg-stone-100 w-full h-screen" data-theme="emerald">

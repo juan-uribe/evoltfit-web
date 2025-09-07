@@ -74,7 +74,7 @@ export default function VisualizadorCalorias() {
 
     if (error) {
       //console.log(error);
-     // console.log("ERROR: Hubo un error al crear un nuevo registro.");
+      //console.log("ERROR: Hubo un error al crear un nuevo registro.");
     } else {
       //console.log(data);
       //console.log("Se creó una nueva rutina.")
@@ -106,9 +106,7 @@ export default function VisualizadorCalorias() {
       .match({ usuario: session.user.id, fecha_agregado: fecha_baseDatos });
 
     if (err) {
-      //console.log(
-      //  "ERROR: Hubo un error al recuperar todos los productos del usuario."
-      //);
+      //console.log("ERROR: Hubo un error al recuperar todos los productos del usuario.");
       //console.log(err);
     } else {
       //console.log(res);
@@ -186,7 +184,7 @@ export default function VisualizadorCalorias() {
                   </div>
                 </div>
               <h2 className="text-xl xl:text-2xl text-center">
-                {"Registros calóricos de " + sesion.user.user_metadata.nombre}
+                {"Mis Registros"}
               </h2>
 
               <br />

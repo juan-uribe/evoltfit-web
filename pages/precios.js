@@ -71,7 +71,7 @@ export default function Home() {
       setFlag(false);
 
       if (sesion) {
-        //console.log("El usuario conectado es:" + sesion.user.id);
+        ////console.log("El usuario conectado es:" + sesion.user.id);
 
         async function getPlan() {
           

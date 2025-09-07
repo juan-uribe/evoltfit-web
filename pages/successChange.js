@@ -28,7 +28,7 @@ export default function Home() {
       mesesConvertidos = parseInt(meses - 1);
 
       if (nombrePaquete && meses) {
-        //console.log("El usuario conectado es:" + sesion.user.id);
+        ////console.log("El usuario conectado es:" + sesion.user.id);
         registrarCambio();
         setTimeout(function () {
           router.push("/herramientas");
@@ -55,7 +55,7 @@ export default function Home() {
       //console.log(error);
     } else {
       var fecharTerminacionPlanActual = sus_pagos[0].fecha_termino;
-      //console.log(fecharTerminacionPlanActual)
+      ////console.log(fecharTerminacionPlanActual)
       var concatenarYear = parseInt(
           fecharTerminacionPlanActual[0] +
           fecharTerminacionPlanActual[1] +
@@ -119,12 +119,12 @@ export default function Home() {
 
     if (data.session) {
       setSesion(data.session);
-      //console.log(data);
+      ////console.log(data);
     } else {
       setSesion(null);
       router.push("/");
-      //console.log("No hay Sesión " + error);
-      //console.log(data);
+      ////console.log("No hay Sesión " + error);
+      ////console.log(data);
     }
   };
 

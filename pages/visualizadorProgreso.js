@@ -114,13 +114,11 @@ export default function VisualizadorProgreso() {
           )
           .eq("rutina", rutinas[i].id);
         if (error) {
-          //console.log(
-           // `ERROR: Hubo un error al recuperar los ejercicios de la rutina ${rutinas[i].id}.`
-          //);
+          //console.log(`ERROR: Hubo un error al recuperar los ejercicios de la rutina ${rutinas[i].id}.`);
           //console.log(error);
         } else {
           //console.log(`Ejercicios de la rutina ${rutinas[i].id}:`);
-         // console.log(data);
+          //console.log(data);
           ejerciciosPorRutina[rutinas[i].id] = data;
         }
       }
@@ -374,8 +372,8 @@ export default function VisualizadorProgreso() {
       .eq('id', ejercicios[index])
 
       if (error) {
-       // console.log('ERROR: No se encontró el ejercicio.')
-       // console.log(error)
+        //console.log('ERROR: No se encontró el ejercicio.')
+        //console.log(error)
       }
       else{
         volumenEjercicios.push({
@@ -781,7 +779,7 @@ export default function VisualizadorProgreso() {
           <div className="bg-white flex flex-col bg-white border w-11/12 h-celdasVP rounded-md shadow-xl p-5">
             <div className="w-full px-2">
               <h2 className="text-xl text-blue-500 xl:text-2xl font-semibold">
-                ¿Cuánto trabaja tu rutina?
+                ¿Cuánto trabaja tu rutina? - <span className="text-green-600">EvoltFit Plus</span>
               </h2>
               <div className="divider my-0"></div>
               <select
@@ -1466,7 +1464,7 @@ export default function VisualizadorProgreso() {
             <div className="bg-white border w-11/12 h-celdasVP rounded-md shadow-xl p-5">
               <div className="w-full border-b-2 pb-2">
                 <h2 className="text-xl text-blue-500 xl:text-2xl font-semibold">
-                  Meta de calorías - {perfil.nombre}
+                  Meta de calorías {perfil.nombre} - <span className="text-green-600">EvoltFit Plus</span>
                 </h2>
               </div>
 
@@ -1708,7 +1706,7 @@ export default function VisualizadorProgreso() {
           <div className="bg-white border w-11/12 h-celdasVP rounded-md shadow-xl p-5">
             <div className="flex flex-col w-full h-full">
               <h2 className="text-xl text-blue-500 xl:text-2xl font-semibold">
-                Volumen por Día
+                Volumen por Día - <span className="text-green-600">EvoltFit Plus</span>
               </h2>
               <div className="divider my-0"></div>
               {volumenDiario ? (

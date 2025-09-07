@@ -32,8 +32,8 @@ export default function Home() {
     })
 
     if(error){
-      console.log("ERROR: Hubo un error al registrar algo del formulario")
-      console.log(error)
+      //console.log("ERROR: Hubo un error al registrar algo del formulario")
+      //console.log(error)
     }else{
       //console.log("Se envío el formulario de ayuda correctamente")
       alert("Enviado correctamente")
