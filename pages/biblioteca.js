@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
 import Navbar from "/components/Navbar";
 import Footer from "/components/Footer";
-import supabase from "../config/supabaseClient";
+// supabase client removed for this page to avoid mixed content when base URL is http
 import Image from "next/image";
 
 export default function Home() {
@@ -96,41 +96,40 @@ export default function Home() {
     if(formInput.search != undefined && formInput.search != ""){
       filtrarSearch = "%" + formInput.search + "%"
     }
+    // Build query params for proxy
+    const params = new URLSearchParams();
+    params.set('select', '*');
+    params.set('order', 'puntuacion.desc');
+    params.set('offset', String(rango - 10));
+    params.set('limit', '10');
 
-    let query = supabase
-    .from('ejercicios')
-    .select('*')
-    .range(rango-10, rango-1)
-  
-    if (filtrarMusculo)  { query = query.eq('musculo_primario', filtrarMusculo) }
-    //if (filtrarMusculo) { //console.log("Filtro musculo: " + filtrarMusculo)}
+    if (filtrarMusculo) {
+      params.set('musculo_primario', `eq.${filtrarMusculo}`);
+    }
+    if (filtrarEquipo) {
+      // Supabase "containedBy" uses "cs" operator on array columns
+      params.set('equipo', `cs.{${filtrarEquipo.join(',')}}`);
+    }
+    if (filtrarSearch) {
+      params.set('nombre', `ilike.${filtrarSearch}`);
+    }
 
-    if (filtrarEquipo)  { query = query.containedBy('equipo', filtrarEquipo) }
-    //if (filtrarEquipo) { //console.log("Filtro equipo: " + filtrarEquipo)}
+    const [dataRes, countRes] = await Promise.all([
+      fetch(`/api/ejercicios?${params.toString()}`),
+      fetch(`/api/ejercicios/count?${(() => {
+        const p = new URLSearchParams();
+        if (filtrarMusculo) { p.set('musculo_primario', `eq.${filtrarMusculo}`); }
+        if (filtrarEquipo) { p.set('equipo', `cs.{${filtrarEquipo.join(',')}}`); }
+        if (filtrarSearch) { p.set('nombre', `ilike.${filtrarSearch}`); }
+        return p.toString();
+      })()}`),
+    ]);
 
-    if (filtrarSearch) { query = query.ilike('nombre', filtrarSearch) }
-    //if (filtrarSearch) { //console.log("Filtro search: " + filtrarSearch) }
+    const ejerciciosJson = await dataRes.json();
+    const countJson = await countRes.json();
 
-    query = query.order('puntuacion', { ascending: false })
-    const data = await query
-
-    setEjercicios(data.data);
-    //console.log(data.data)
-
-    //CONTEO TOTAL DE REGISTROS
-
-    query = supabase
-    .from('ejercicios')
-    .select('id', { count: 'exact', head: true })
-
-    if (filtrarMusculo)  { query = query.eq('musculo_primario', filtrarMusculo) }
-    if (filtrarEquipo)  { query = query.containedBy('equipo', filtrarEquipo) }
-    if (filtrarSearch) { query = query.ilike('nombre', filtrarSearch) }
-
-    const count = await query
-
-    setCantidad(count.count);
-    //console.log(count.count);
+    setEjercicios(ejerciciosJson);
+    setCantidad(countJson.count || 0);
   }
 
   function incluye(arreglo, buscar) {
