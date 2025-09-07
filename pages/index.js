@@ -12,6 +12,7 @@ export default function Home() {
   const [flag, setFlag] = useState(false);
   const [resultado, setResultado] = useState(null);
   const [usosSe,setUsosSe]=useState("");
+  console.log("SUPABASE_URL: " + process.env.NEXT_PUBLIC_SUPABASE_URL);
   useEffect(() => {
     handleSesion();
     localStorage.removeItem("NombrePaquete");
