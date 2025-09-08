@@ -53,35 +53,55 @@ export default function ComenzarRutina() {
   }
 
   async function getRutina() {
-    ////console.log(rutinaIndex)
-    
-    const { data, error } = await supabase
+  const { data, error } = await supabase
     .from('rutinas')
     .select(`
-    *,
-    rutina_en_progreso(*)
+      *,
+      rutina_en_progreso(*)
     `)
     .eq('id', rutinaIndex)
+    .limit(1);
 
-    if (error) {
-      //console.log('ERROR: No se encontró la rutina.')
-      //console.log(error)
-    }
-    else{
-      setRutina(data[0]);
-      ////console.log(data[0])
-
-      if (data[0].rutina_en_progreso.length === 0) {
-        getEjerciciosRutina();
-      }
-      else{
-        setEjerciciosRutina(data[0].rutina_en_progreso[0].ejerciciosRutina);
-        setTiempo(data[0].rutina_en_progreso[0].tiempo)
-        setEjercicioSeleccionado(data[0].rutina_en_progreso[0].ejercicioSeleccionado)
-        setComenzarEntrenamiento(true)
-      }
-    } 
+  if (error) {
+    // handle/log
+    return;
   }
+
+  const row = data?.[0];
+
+  // If nothing came back, bail gracefully
+  if (!row) {
+    // optional: set some empty state
+    return;
+  }
+
+  // ✅ Normalize: rutina_en_progreso is always an array
+  const rutinaNorm = {
+    ...row,
+    rutina_en_progreso: Array.isArray(row.rutina_en_progreso)
+      ? row.rutina_en_progreso
+      : (row.rutina_en_progreso == null ? [] : [row.rutina_en_progreso]) // in case API returns a single object or null
+  };
+
+  setRutina(rutinaNorm);
+  console.log(rutinaNorm);
+
+  // ✅ Check for “no progress yet”
+  if (rutinaNorm.rutina_en_progreso.length === 0) {
+    // no progreso stored; fetch exercises to start
+    getEjerciciosRutina();
+    return;
+  }
+
+  // ✅ We have progreso; safely pull the first item with fallbacks
+  const first = rutinaNorm.rutina_en_progreso[0] ?? {};
+
+  setEjerciciosRutina(first.ejerciciosRutina ?? []);   // if your schema calls it differently, adjust here
+  setTiempo(first.tiempo ?? 0);
+  setEjercicioSeleccionado(first.ejercicioSeleccionado ?? null);
+  setComenzarEntrenamiento(true);
+}
+
   
   async function agregarSet(indexEjercicio) {
     let cantSets = ejerciciosRutina[indexEjercicio].rutinas_ejercicio_sets.length;

@@ -171,7 +171,7 @@ const CardEjercicio = ({ rutinaEjercicio, getEjerciciosRutina, index }) => {
                         query: { ejercicio: ejercicio.id }
                     })}}
                     >
-                        <Image className='rounded-full' src={`/storage/v1/object/public/img/ejercicios/${ejercicio.img}`} layout='fill' objectFit="cover"/>
+                        <Image className='rounded-full' src={`/storage/v1/object/public/img/ejercicios/${ejercicio.img}`} layout='fill' objectFit="cover" alt="ejercicio"/>
                     </div>
                     <div className="flex-auto w-2 pl-2">
                         <p 
