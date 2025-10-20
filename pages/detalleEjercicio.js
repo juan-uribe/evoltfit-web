@@ -7,19 +7,20 @@ import supabase from "../config/supabaseClient";
 
 export default function DetalleEjercicio() {
   const router = useRouter();
-  let ejercicioIndex = router.query.ejercicio;
+  const ejercicioIndex = router.query.ejercicio; // puede ser undefined en el 1er render
 
   const [sesion, setSesion] = useState(null);
   const [ejercicio, setEjercicio] = useState(null);
   const [rutinas, setRutinas] = useState(null);
   const [formInput, setFormInput] = useState({});
 
+  // Limpiezas/otras cosas que no dependen del id
   useEffect(() => {
+    if (!router.isReady) return;
     localStorage.removeItem("NombrePaquete");
     localStorage.removeItem("Meses");
-    handleSesion()
-    getEjercicio()
-  }, []);
+    handleSesion();
+  }, [router.isReady]);
 
   const handleSesion = async () => {
 
@@ -40,22 +41,36 @@ export default function DetalleEjercicio() {
     }
   }
 
-  async function getEjercicio() {
-    const { data, error } = await supabase
-    .from('ejercicios')
-    .select('*')
-    .eq('id', ejercicioIndex)
+const getEjercicio = useCallback(async () => {
+    // espera a que el router tenga el query y valida el id
+    if (!router.isReady || !ejercicioIndex) return;
 
-    if (error) {
-      //console.log('ERROR: No se encontró el ejercicio.')
-      //console.log(error)
-      router.push('/biblioteca')
+    // si tu columna 'id' es numérica, conviene castear
+    const id = Number(ejercicioIndex);
+    if (Number.isNaN(id)) {
+      router.push("/biblioteca");
+      return;
     }
-    else{
-      setEjercicio(data[0]);
-      ////console.log(data[0])
+
+    const { data, error } = await supabase
+      .from("ejercicios")
+      .select("*")
+      .eq("id", id)
+      .limit(1);
+
+    // Ojo: Supabase no marca error cuando no hay filas; 'data' puede ser []
+    if (error || !data || data.length === 0) {
+      router.push("/biblioteca");
+      return;
     }
-  }
+
+    setEjercicio(data[0]);
+  }, [router.isReady, ejercicioIndex]);
+
+  // dispara la carga SOLO cuando ya hay id listo
+  useEffect(() => {
+    getEjercicio();
+  }, [getEjercicio]);
 
   async function getRutinas(session) {
     const { data, error } = await supabase
