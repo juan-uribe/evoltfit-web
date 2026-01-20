@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
 import { createAvatar } from '@dicebear/core';
 import { micah } from '@dicebear/collection';
-import Navbar from "/components/Navbar";
-import Footer from "/components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import supabase from "../config/supabaseClient";
-import Aviso from "/components/Aviso";
+import Aviso from "../components/Aviso";
 
 export default function Home() {
   const router = useRouter();

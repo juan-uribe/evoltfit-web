@@ -2,13 +2,13 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import Navbar from "/components/Navbar";
-import Footer from "/components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import supabase from "../config/supabaseClient";
-import CardEjercicioEntrenamiento from "/components/CardEjercicioEntrenamiento";
-import Aviso from "/components/Aviso";
-import Cronometro from "/components/Cronometro";
-import EliminarConfirmar from "/components/EliminarConfirmar";
+import CardEjercicioEntrenamiento from "../components/CardEjercicioEntrenamiento";
+import Aviso from "../components/Aviso";
+import Cronometro from "../components/Cronometro";
+import EliminarConfirmar from "../components/EliminarConfirmar";
 
 export default function ComenzarRutina() {
   const router = useRouter();

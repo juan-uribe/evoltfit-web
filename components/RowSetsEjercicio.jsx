@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
-import supabase from "/config/supabaseClient";
+import supabase from "../config/supabaseClient";
 
 const RowSetsEjercicio = ({ set, index, getSets, eliminar }) => {
     ////console.log(set);

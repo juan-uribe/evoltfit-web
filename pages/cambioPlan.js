@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "/components/Navbar";
-import Footer from "/components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import Head from "next/head";
-import PreciosCambio from "/components/CardsPrecioCambio";
+import PreciosCambio from "../components/CardsPrecioCambio";
 import { useRouter } from "next/router";
-import supabase from "/config/supabaseClient";
+import supabase from "../config/supabaseClient";
 import { useState, useEffect } from "react";
-import Typed from "/components/Typed";
+import Typed from "../components/Typed";
 
 const plans = [
   {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "/components/Navbar";
-import Footer from "/components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import Head from "next/head";
 import Seccion1 from "./SistemaE/Seccion1";
 import Seccion2 from "./SistemaE/Seccion2";

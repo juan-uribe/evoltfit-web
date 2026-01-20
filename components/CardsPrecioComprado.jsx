@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { CheckIcon } from "@heroicons/react/solid";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState, useEffect } from "react";
-import supabase from "/config/supabaseClient";
+import supabase from "../config/supabaseClient";
 
 const CardsPrecios = ({
   nombre = "",

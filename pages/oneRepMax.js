@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
-import Navbar from "/components/Navbar";
-import Aviso from "/components/Aviso";
-import Footer from "/components/Footer";
+import Navbar from "../components/Navbar";
+import Aviso from "../components/Aviso";
+import Footer from "../components/Footer";
 import supabase from "../config/supabaseClient";
 
 export default function OneRepMax() {

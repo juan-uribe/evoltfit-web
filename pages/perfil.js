@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
-import Navbar from "/components/Navbar";
+import Navbar from "../components/Navbar";
 import supabase from "../config/supabaseClient";
-import Footer from "/components/Footer";
+import Footer from "../components/Footer";
 import { subDays, format } from "date-fns";
 
 export default function Perfil() {

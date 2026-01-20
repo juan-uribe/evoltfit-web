@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import supabase from "/config/supabaseClient";
+import supabase from "../config/supabaseClient";
 
 const CardCalorias = ({ registro }) => {
   const router = useRouter();

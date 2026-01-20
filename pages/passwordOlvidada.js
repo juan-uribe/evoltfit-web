@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Footer from "/components/Footer";
+import Footer from "../components/Footer";
 import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
 import supabase from "../config/supabaseClient";

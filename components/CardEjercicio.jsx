@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useCallback, useEffect } from "react";
-import supabase from "/config/supabaseClient";
-import RowSetsEjercicio from "/components/RowSetsEjercicio";
-import EliminarConfirmar from "/components/EliminarConfirmar";
+import supabase from "../config/supabaseClient";
+import RowSetsEjercicio from "./RowSetsEjercicio";
+import EliminarConfirmar from "./EliminarConfirmar";
 
 const CardEjercicio = ({ rutinaEjercicio, getEjerciciosRutina, index }) => {
     const router = useRouter();

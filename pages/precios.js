@@ -1,13 +1,13 @@
 import React from "react";
-import Navbar from "/components/Navbar";
-import Footer from "/components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import Head from "next/head";
-import Precios from "/components/CardsPrecios";
-import PreciosSesion from "/components/CardsPrecioSesion";
-import PreciosComprado from "/components/CardsPrecioComprado";
+import Precios from "../components/CardsPrecios";
+import PreciosSesion from "../components/CardsPrecioSesion";
+import PreciosComprado from "../components/CardsPrecioComprado";
 import { useRouter } from "next/router";
 import { Link } from "react-scroll";
-import supabase from "/config/supabaseClient";
+import supabase from "../config/supabaseClient";
 import { useState, useEffect } from "react";
 
 const plans = [

@@ -2,11 +2,11 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState, useEffect, useCallback, Fragment } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import Navbar from "/components/Navbar";
-import Footer from "/components/Footer";
-import CardEjercicio from "/components/CardEjercicio";
-import SeleccionarEjercicio from "/components/SeleccionarEjercicio";
-import EliminarConfirmar from "/components/EliminarConfirmar";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import CardEjercicio from "../components/CardEjercicio";
+import SeleccionarEjercicio from "../components/SeleccionarEjercicio";
+import EliminarConfirmar from "../components/EliminarConfirmar";
 import supabase from "../config/supabaseClient";
 
 export default function Home() {

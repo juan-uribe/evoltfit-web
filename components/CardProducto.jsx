@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import supabase from "/config/supabaseClient";
+import supabase from "../config/supabaseClient";
 
 const CardProducto = ({ registroProducto, sesion, getProductosRegistro }) => {
   const producto = registroProducto.producto_id;

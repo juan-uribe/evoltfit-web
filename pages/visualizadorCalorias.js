@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Navbar from "/components/Navbar";
-import Footer from "/components/Footer";
-import supabase from "/config/supabaseClient";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import supabase from "../config/supabaseClient";
 import CardCalorias from "../components/CardCalorias";
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import AsignarMeta from "../components/AsignarMeta";
@@ -209,10 +209,10 @@ export default function VisualizadorCalorias() {
               {/* PAGINACIÓN */}
               {/* <div className="flex flex-col items-center mb-2 mt-4">
                 <div className="btn-group">
-                  {(paginacion == 1) ? "" : <button className="bg-blue-600 text-xl lg:btn-lg" onClick={() => {setPaginacion(paginacion - 1)}}>«</button>}
+                  {(paginacion == 1) ? "" : <button className="bg-blue-600 text-xl" onClick={() => {setPaginacion(paginacion - 1)}}>«</button>}
                   {((paginacion - 2) <= 0) ? "" : <button className="" onClick={() => {setPaginacion(paginacion - 2)}}>{paginacion - 2}</button>}
                   {((paginacion - 1) <= 0) ? "" : <button className="" onClick={() => {setPaginacion(paginacion - 1)}}>{paginacion - 1}</button>}
-                  <button className="btn lg:btn-lg btn-secondary">{paginacion}</button>
+                  <button className="btn btn-secondary">{paginacion}</button>
                   {(cantidad > (paginacion * 10))? <button className="" onClick={() => {setPaginacion(paginacion + 1)}}>{paginacion + 1}</button> : ""}
                   {(cantidad > ((paginacion+1) * 10))? <button className="" onClick={() => {setPaginacion(paginacion + 2)}}>{paginacion + 2}</button> : ""}
                   {(paginacion >= (cantidad/10))? "" : <button className="" onClick={() => {setPaginacion(paginacion + 1)}}>»</button>}

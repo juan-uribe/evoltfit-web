@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
-import supabase from "/config/supabaseClient";
-import RowSetsComenzar from "/components/RowSetsComenzar";
+import supabase from "../config/supabaseClient";
+import RowSetsComenzar from "./RowSetsComenzar";
 
 const Cronometro = ({ pausaTiempo, setTiempo, tiempo }) => {
 

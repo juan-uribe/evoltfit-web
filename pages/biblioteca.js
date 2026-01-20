@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
-import Navbar from "/components/Navbar";
-import Footer from "/components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 // supabase client removed for this page to avoid mixed content when base URL is http
 import Image from "next/image";
 
@@ -177,7 +177,7 @@ export default function Home() {
                 <svg aria-hidden="true" className="w-3 h-3  lg:w-5 lg:h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
               </div>
               <input name="search" id="search" onBlur={getEjerciciosBiblioteca} className="input input-secondary border-0 block w-full pl-8 lg:p-8 lg:pl-11 text-sm lg:text-lg rounded-xl shadow" value={formInput.search || ""} onChange={handleOnInputChange} placeholder="Buscar ejercicio..."/>
-              <button type="submit" onClick={getEjerciciosBiblioteca} className="btn text-white absolute right-2 lg:right-3 lg:bottom-2 btn-secondary rounded-lg btn-sm lg:btn-md top-2 lg:px-6 lg:py-2">BUSCAR</button>
+              <button type="submit" onClick={getEjerciciosBiblioteca} className="btn text-white absolute right-2 lg:right-3 lg:bottom-2 btn-secondary rounded-lg btn-sm top-2 lg:px-6 lg:py-2">BUSCAR</button>
             </div>
 
             <br/>
@@ -319,13 +319,13 @@ export default function Home() {
                 {/* PAGINACIÓN */}
                 <div className="flex flex-col my-auto w-3/4 items-end">
                   <div className="btn-group">
-                    {(paginacion == 1) ? "" : <button className="btn btn-xs btn-outline btn-secondary lg:btn-sm" onClick={() => {setPaginacion(paginacion - 1)}}>«</button>}
-                    {((paginacion - 2) <= 0) ? "" : <button className="btn btn-outline btn-secondary btn-xs first-letter:btn-xs lg:btn-sm" onClick={() => {setPaginacion(paginacion - 2)}}>{paginacion - 2}</button>}
-                    {((paginacion - 1) <= 0) ? "" : <button className="btn btn-outline btn-secondary btn-xs lg:btn-sm" onClick={() => {setPaginacion(paginacion - 1)}}>{paginacion - 1}</button>}
-                    <button className="btn btn-xs lg:btn-sm btn-secondary">{paginacion}</button>
-                    {(cantidad > (paginacion * 10))? <button className="btn btn-outline btn-secondary btn-xs lg:btn-sm" onClick={() => {setPaginacion(paginacion + 1)}}>{paginacion + 1}</button> : ""}
-                    {(cantidad > ((paginacion+1) * 10))? <button className="btn btn-outline btn-secondary btn-xs lg:btn-sm" onClick={() => {setPaginacion(paginacion + 2)}}>{paginacion + 2}</button> : ""}
-                    {(paginacion >= (cantidad/10))? "" : <button className="btn btn-outline btn-secondary btn-xs lg:btn-sm" onClick={() => {setPaginacion(paginacion + 1)}}>»</button>}
+                    {(paginacion == 1) ? "" : <button className="btn btn-xs btn-outline btn-secondary" onClick={() => {setPaginacion(paginacion - 1)}}>«</button>}
+                    {((paginacion - 2) <= 0) ? "" : <button className="btn btn-outline btn-secondary btn-xs" onClick={() => {setPaginacion(paginacion - 2)}}>{paginacion - 2}</button>}
+                    {((paginacion - 1) <= 0) ? "" : <button className="btn btn-outline btn-secondary btn-xs" onClick={() => {setPaginacion(paginacion - 1)}}>{paginacion - 1}</button>}
+                    <button className="btn btn-xs btn-secondary">{paginacion}</button>
+                    {(cantidad > (paginacion * 10))? <button className="btn btn-outline btn-secondary btn-xs" onClick={() => {setPaginacion(paginacion + 1)}}>{paginacion + 1}</button> : ""}
+                    {(cantidad > ((paginacion+1) * 10))? <button className="btn btn-outline btn-secondary btn-xs" onClick={() => {setPaginacion(paginacion + 2)}}>{paginacion + 2}</button> : ""}
+                    {(paginacion >= (cantidad/10))? "" : <button className="btn btn-outline btn-secondary btn-xs" onClick={() => {setPaginacion(paginacion + 1)}}>»</button>}
                   </div>
                 </div>
               </div>
@@ -386,13 +386,13 @@ export default function Home() {
               {/* PAGINACIÓN */}
               <div className="flex flex-col items-center mb-2 mt-4">
                 <div className="btn-group">
-                  {(paginacion == 1) ? "" : <button className="btn btn-outline btn-secondary text-xl lg:btn-lg" onClick={() => {setPaginacion(paginacion - 1); window.scrollTo(0, 0)}}>«</button>}
-                  {((paginacion - 2) <= 0) ? "" : <button className="btn btn-outline btn-secondary lg:btn-lg" onClick={() => {setPaginacion(paginacion - 2); window.scrollTo(0, 0)}}>{paginacion - 2}</button>}
-                  {((paginacion - 1) <= 0) ? "" : <button className="btn btn-outline btn-secondary lg:btn-lg" onClick={() => {setPaginacion(paginacion - 1); window.scrollTo(0, 0)}}>{paginacion - 1}</button>}
-                  <button className="btn lg:btn-lg btn-secondary">{paginacion}</button>
-                  {(cantidad > (paginacion * 10))? <button className="btn btn-outline btn-secondary lg:btn-lg" onClick={() => {setPaginacion(paginacion + 1); window.scrollTo(0, 0)}}>{paginacion + 1}</button> : ""}
-                  {(cantidad > ((paginacion+1) * 10))? <button className="btn btn-outline btn-secondary lg:btn-lg" onClick={() => {setPaginacion(paginacion + 2); window.scrollTo(0, 0);}}>{paginacion + 2}</button> : ""}
-                  {(paginacion >= (cantidad/10))? "" : <button className="btn btn-outline btn-secondary text-xl lg:btn-lg" onClick={() => {setPaginacion(paginacion + 1); window.scrollTo(0, 0);}}>»</button>}
+                  {(paginacion == 1) ? "" : <button className="btn btn-outline btn-secondary text-xl" onClick={() => {setPaginacion(paginacion - 1); window.scrollTo(0, 0)}}>«</button>}
+                  {((paginacion - 2) <= 0) ? "" : <button className="btn btn-outline btn-secondary" onClick={() => {setPaginacion(paginacion - 2); window.scrollTo(0, 0)}}>{paginacion - 2}</button>}
+                  {((paginacion - 1) <= 0) ? "" : <button className="btn btn-outline btn-secondary" onClick={() => {setPaginacion(paginacion - 1); window.scrollTo(0, 0)}}>{paginacion - 1}</button>}
+                  <button className="btn btn-secondary">{paginacion}</button>
+                  {(cantidad > (paginacion * 10))? <button className="btn btn-outline btn-secondary" onClick={() => {setPaginacion(paginacion + 1); window.scrollTo(0, 0)}}>{paginacion + 1}</button> : ""}
+                  {(cantidad > ((paginacion+1) * 10))? <button className="btn btn-outline btn-secondary" onClick={() => {setPaginacion(paginacion + 2); window.scrollTo(0, 0);}}>{paginacion + 2}</button> : ""}
+                  {(paginacion >= (cantidad/10))? "" : <button className="btn btn-outline btn-secondary text-xl" onClick={() => {setPaginacion(paginacion + 1); window.scrollTo(0, 0);}}>»</button>}
                 </div>
               </div>
             </div> 

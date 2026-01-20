@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState, useEffect, useCallback, Fragment } from "react";
-import Navbar from "/components/Navbar";
-import Footer from "/components/Footer";
-import CardProducto from "/components/CardProducto";
-import SeleccionarProducto from "/components/SeleccionarProducto";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import CardProducto from "../components/CardProducto";
+import SeleccionarProducto from "../components/SeleccionarProducto";
 import supabase from "../config/supabaseClient";
 
 export default function Home() {
