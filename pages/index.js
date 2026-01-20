@@ -126,7 +126,7 @@ export default function Home() {
       </Head>
       <Navbar />
 
-      <main className="mx-auto max-w-screen-2xl px-4 pb-16 pt-10 sm:px-6 lg:px-10">
+      <main className="mx-auto max-w-screen-2xl px-4 pb-16 pt-28 sm:px-6 sm:pt-32 lg:px-10 lg:pt-36">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white/90 p-8 shadow-xl shadow-blue-100/40 backdrop-blur transition duration-200 hover:-translate-y-1">
             <div className="pointer-events-none absolute -right-10 -top-12 h-32 w-32 rounded-full bg-blue-500/10 blur-2xl"></div>
