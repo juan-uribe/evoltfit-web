@@ -46,7 +46,7 @@
     "tailwindcss": "^3.1.8"
   },
   "engines": {
-    "node": ">=22 <23"
+    "node": ">=24 <25"
   },
   "react-dotenv": {
     "whitelist": [
